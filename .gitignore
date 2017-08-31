@@ -1,0 +1,10 @@
+# config
+.vscode
+
+# node_modules
+node_modules
+
+# generation
+lib
+dist
+doc

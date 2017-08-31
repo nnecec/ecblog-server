@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowJs": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "node_modules/@types/"
+    ],
+    "watch": true,
+    // "allowSyntheticDefaultImports": true,
+    // "importHelpers": true,
+    // "alwaysStrict": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitAny": false,
+    // "noImplicitThis": false,
+    // "strictNullChecks": false
+    // "declaration": true
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "include": [
+    "./src/**/*",
+    "__tests__/**/*"
+  ],
+  "exclude": [
+    ".vscode",
+    "node_modules",
+    "dist"
+  ]
+}
