@@ -17,7 +17,7 @@ const UserSchema: mongoose.Schema = new Schema({
   nickname: {
     type: String
   },
-  boi: {
+  bio: {
     type: String
   },
   avatar: {
@@ -50,10 +50,17 @@ const UserSchema: mongoose.Schema = new Schema({
 })
 
 UserSchema
-  .virtual('password')
+  .virtual('data')
   .get(() => ({
     _id: this._id,
-    token: this.access_token
+    account: this.account,
+    email: this.email,
+    nickname: this.nickname,
+    bio: this.bio,
+    avatar: this.avatar,
+    github: this.github,
+    created: this.created,
+    updated: this.updated
   }))
 
 const user = mongoose.model('user', UserSchema)
