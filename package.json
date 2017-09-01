@@ -16,30 +16,37 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ava": "^0.22.0",
     "babel-polyfill": "^6.26.0",
-    "core-js": "^2.5.0",
+    "core-js": "^2.5.1",
     "graphql": "^0.11.2",
     "graphql-relay": "^0.5.2",
     "isomorphic-fetch": "^2.2.1",
+    "joi": "^10.6.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compose": "^4.0.0",
     "koa-convert": "^1.2.0",
     "koa-cors": "0.0.16",
     "koa-graphql": "^0.7.3",
+    "koa-helmet": "^3.2.0",
     "koa-logger": "^3.0.1",
+    "koa-passport": "^3.0.0",
     "koa-router": "^7.2.1",
+    "koa-session": "^5.5.0",
     "koa-static": "^4.0.1",
     "koa-views": "^6.0.2",
+    "lodash": "^4.17.4",
     "mongoose": "^4.11.9",
     "mongoose-fill": "^1.6.0",
+    "morgan": "^1.8.2",
+    "node-fetch": "^1.7.2",
     "require-dir": "^0.3.2",
-    "validator": "^8.1.0"
+    "validator": "^8.1.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "@2fd/graphdoc": "^2.4.0",
-    "@types/async": "^2.0.42",
-    "@types/es6-shim": "^0.31.35",
     "@types/graphql": "^0.10.2",
     "@types/koa": "^2.0.39",
     "@types/mongoose": "^4.7.21",
@@ -56,6 +63,6 @@
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
     "tslint-config-standard": "^6.0.1",
-    "typescript": "^2.4.2"
+    "typescript": "^2.5.2"
   }
 }

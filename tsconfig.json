@@ -10,7 +10,6 @@
     "typeRoots": [
       "node_modules/@types/"
     ],
-    "watch": true,
     // "allowSyntheticDefaultImports": true,
     // "importHelpers": true,
     // "alwaysStrict": true,
@@ -24,13 +23,14 @@
     // "strictNullChecks": false
     // "declaration": true
     "lib": [
-      "es2017",
-      "dom"
+      "es6",
+      "dom",
+      "esnext.asynciterable"
     ]
   },
   "include": [
     "./src/**/*",
-    "__tests__/**/*"
+    "./test/**/*"
   ],
   "exclude": [
     ".vscode",
