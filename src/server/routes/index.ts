@@ -1,18 +1,22 @@
 import * as compose from 'koa-compose'
 import * as Router from 'koa-router'
-import * as requireDir from 'require-dir'
 
-const routerConfigs: Array<any> = [{ folder: 'base', prefix: '' }, { folder: 'api', prefix: '/graphql' }]
+import * as graphQLHTTP from 'koa-graphql'
 
-export default function route () {
-  const composed = routerConfigs.reduce((prev, curr) => {
-    const routes = requireDir(`./${curr.folder}`)
-    const router = new Router({
-      prefix: curr.prefix
-    })
-    Object.keys(routes).map(name => routes[name](router))
+import Schema from '../graphql'
 
-    return [router.routes(), router.allowedMethods(), ...prev]
-  }, [])
-  return compose(composed)
-}
+const router = new Router()
+
+router.get('/', (ctx, next) => {
+  ctx.body = 'home page'
+})
+
+router.all('/graphql', graphQLHTTP({
+  schema: Schema,
+  pretty: true,
+  graphiql: true
+  // rootValue: { sid: ctx.request.headers.authorization },
+}))
+
+const routes = () => compose([router.routes(), router.allowedMethods()])
+export default routes

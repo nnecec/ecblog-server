@@ -1,6 +1,8 @@
 
-module.exports = (router) => {
+const base = (router) => {
   router.get('/', (ctx, next) => {
-    console.log('test home page')
+    console.log('root page')
   })
 }
+
+module.exports = base

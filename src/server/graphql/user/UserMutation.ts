@@ -14,19 +14,34 @@ import { User } from '../../controller'
 const UserMutation = {
   register: {
     type: UserType,
-    description: 'update User',
+    description: 'register User',
     args: {
-      account: {
-        type: GraphQLString
-      },
-      password: {
-        type: GraphQLString
-      }
+      account: { type: GraphQLString },
+      password: { type: GraphQLString }
+    },
+    resolve: async (root, params) => {
+      const user = await User.register(params)
+    }
+  },
+  login: {
+    type: UserType,
+    description: 'login User',
+    args: {
+      account: { type: GraphQLString },
+      password: { type: GraphQLString }
     },
     resolve: async (root, params) => {
       console.log(params)
     }
+  },
+  logout: {
+    type: UserType,
+    description: 'logout User',
+    resolve: async (root, params) => {
+      console.log(params)
+    }
   }
+
 }
 
 export default UserMutation
