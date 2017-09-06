@@ -2,7 +2,7 @@
 
 Koa server is a open-source GraphQL server.
 
-It is built on top of the Node.js, koa, GraphQL and mongoDB.
+It is built on top of the Node.js, koa, GraphQL, mongoDB, redis.
 
 ## Getting Started
 

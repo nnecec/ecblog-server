@@ -19,4 +19,5 @@ router.all('/graphql', graphQLHTTP({
 }))
 
 const routes = () => compose([router.routes(), router.allowedMethods()])
+
 export default routes

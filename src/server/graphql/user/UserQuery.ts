@@ -1,11 +1,11 @@
 import {
-	GraphQLObjectType,
-	GraphQLList,
-	GraphQLBoolean,
-	GraphQLString,
-	GraphQLInt,
-	GraphQLID,
-	GraphQLNonNull
+  GraphQLObjectType,
+  GraphQLList,
+  GraphQLBoolean,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLID,
+  GraphQLNonNull
 } from 'graphql'
 
 import UserType from './UserType'
