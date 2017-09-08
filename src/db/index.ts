@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose'
-import logger from '../logger'
+import logger from '../tools/logger'
 
 export default function connectDatabase (uri: string) {
   return new Promise((resolve, reject) => {

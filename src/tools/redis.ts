@@ -1,7 +1,8 @@
 import * as Redis from 'ioredis'
 import config from '../config'
-import logger from '../logger'
+import logger from './logger'
 
+// connect to redis client
 const redisClient = new Redis(config.redis)
 
 redisClient.on('connect', function (msg) {

@@ -1,21 +1,24 @@
 import * as mongoose from 'mongoose'
+import * as crypto from 'crypto'
 
 const Schema = mongoose.Schema
 
 const UserSchema: mongoose.Schema = new Schema({
   account: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
-  password: {
-    type: String,
-    required: true
+  hashedPassword: {
+    type: String
   },
   email: {
-    type: String
+    type: String,
+    unique: true
   },
   nickname: {
-    type: String
+    type: String,
+    unique: true
   },
   bio: {
     type: String
@@ -62,6 +65,30 @@ UserSchema
     created: this.created,
     updated: this.updated
   }))
+
+UserSchema
+  .virtual('password')
+  .set(function (password) {
+    this._password = password
+    this.salt = this.makeSalt()
+    console.log(this.salt)
+    this.hashedPassword = this.encryptPassword(password)
+  })
+  .get(() => {
+    return this._password
+  })
+
+UserSchema.methods = {
+  makeSalt: function () {
+    return crypto.randomBytes(16).toString('base64')
+  },
+  // generate hashed password
+  encryptPassword: function (password) {
+    if (!password || !this.salt) return ''
+    const salt = new Buffer(this.salt, 'base64')
+    return crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha1').toString('base64')
+  }
+}
 
 const user = mongoose.model('user', UserSchema)
 

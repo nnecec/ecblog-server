@@ -1,7 +1,7 @@
 import * as winston from 'winston'
 import * as convert from 'koa-convert'
 
-import config from './config'
+import config from '../config'
 import { forEach, isFunction } from 'lodash'
 
 function buildLoggerConfig (config) {

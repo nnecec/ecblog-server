@@ -21,6 +21,7 @@ const UserMutation = {
     },
     resolve: async (root, params) => {
       const user = await User.register(params)
+      return user
     }
   },
   login: {
@@ -31,7 +32,8 @@ const UserMutation = {
       password: { type: GraphQLString }
     },
     resolve: async (root, params) => {
-      console.log(params)
+      const user = await User.login(params)
+      return user
     }
   },
   logout: {
