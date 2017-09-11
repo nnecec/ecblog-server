@@ -4,6 +4,7 @@ import * as Router from 'koa-router'
 import * as graphQLHTTP from 'koa-graphql'
 
 import Schema from '../graphql'
+import { getRootValue } from '../../tools/graphql'
 
 const router = new Router()
 
@@ -11,11 +12,13 @@ router.get('/', (ctx, next) => {
   ctx.body = 'home page'
 })
 
-router.all('/graphql', graphQLHTTP({
-  schema: Schema,
-  pretty: true,
-  graphiql: true
-  // rootValue: { sid: ctx.request.headers.authorization },
+router.all('/graphql', graphQLHTTP(async (ctx) => {
+  return {
+    schema: Schema,
+    pretty: true,
+    graphiql: true,
+    rootValue: await getRootValue(ctx)
+  }
 }))
 
 const routes = () => compose([router.routes(), router.allowedMethods()])

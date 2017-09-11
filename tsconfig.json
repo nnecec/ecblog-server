@@ -1,4 +1,5 @@
 {
+  // "compileOnSave": true,
   "compilerOptions": {
     "outDir": "./dist",
     "target": "es5",
@@ -29,8 +30,8 @@
     ]
   },
   "include": [
-    "./src/**/*",
-    "./test/**/*"
+    "src/**/*",
+    "test/**/*"
   ],
   "exclude": [
     ".vscode",
