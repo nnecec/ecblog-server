@@ -33,6 +33,11 @@ const UserController = {
   },
   detail: async (params) => {
 
+  },
+  getUserByToken: async (params) => {
+    const token = params.token
+    const user = await User.findOne({ token })
+    return user
   }
 }
 

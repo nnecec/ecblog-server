@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose'
+import * as bluebird from 'bluebird'
 import logger from '../tools/logger'
 
 export default function connectDatabase (uri: string) {
@@ -9,6 +10,6 @@ export default function connectDatabase (uri: string) {
       .once('open', () => resolve((mongoose as any).connections[0]))
 
     mongoose.connect(uri, { useMongoClient: true });
-    (mongoose as any).Promise = global.Promise
+    (mongoose as any).Promise = bluebird.Promise
   })
 }

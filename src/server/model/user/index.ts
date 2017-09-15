@@ -32,7 +32,7 @@ const UserSchema: mongoose.Schema = new Schema({
     email: String,
     name: String
   },
-  access_token: {
+  token: {
     type: String
   },
   role: {
@@ -71,7 +71,6 @@ UserSchema
   .set(function (password) {
     this._password = password
     this.salt = this.makeSalt()
-    console.log(this.salt)
     this.hashedPassword = this.encryptPassword(password)
   })
   .get(() => {

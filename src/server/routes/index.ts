@@ -12,12 +12,12 @@ router.get('/', (ctx, next) => {
   ctx.body = 'home page'
 })
 
-router.all('/graphql', graphQLHTTP(async (ctx) => {
+router.all('/graphql', graphQLHTTP(async (request, response, graphQLParams) => {
   return {
     schema: Schema,
     pretty: true,
     graphiql: true,
-    rootValue: await getRootValue(ctx)
+    rootValue: await getRootValue(request)
   }
 }))
 

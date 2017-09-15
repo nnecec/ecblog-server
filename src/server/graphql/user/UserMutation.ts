@@ -1,11 +1,11 @@
 import {
-  GraphQLObjectType,
-  GraphQLList,
   GraphQLBoolean,
-  GraphQLString,
-  GraphQLInt,
   GraphQLID,
-  GraphQLNonNull
+  GraphQLInt,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLString
 } from 'graphql'
 
 import UserType from './UserType'
@@ -32,6 +32,7 @@ const UserMutation = {
       password: { type: GraphQLString }
     },
     resolve: async (root, params) => {
+      console.log('login', root)
       const user = await User.login(params)
       return user
     }

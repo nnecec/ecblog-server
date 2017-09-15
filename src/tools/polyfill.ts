@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import 'isomorphic-fetch'
+import 'node-fetch'
 import 'core-js'
 import nodeFetch from 'node-fetch'
 if (!(process as IProcess).browser) {
