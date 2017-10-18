@@ -1,13 +1,13 @@
+import User from '../server/controller/user'
+
 export const getRootValue = async (req) => {
-  const token = req.ctx.session.token
+  console.log(req)
+
+  const token = req.session.token
   let root = {}
   if (token) {
-    root = {
-      user: 'nnecec',
-      isAuthenticated: req.ctx.isAuthenticated()
-    }
+    root['user'] = await User.getUserByToken(token)
   }
 
   return root
-
 }

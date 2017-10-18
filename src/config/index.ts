@@ -2,7 +2,7 @@
 const config = {
   session: {
     key: process.env.SESSION_SECRET || 'kgm-secret',
-    resave: true,
+    resave: false,
     saveUninitialized: false,
     maxAge: 60000
   },

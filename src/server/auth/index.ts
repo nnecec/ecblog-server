@@ -6,14 +6,22 @@ import { auth as config } from './config'
 
 // Strategies
 import jwtStrategy from './strategies/jwt'
+import emailStrategy from './strategies/email'
+import localStrategy from './strategies/local'
 
 passport.use('jwt', jwtStrategy)
+passport.use('local', localStrategy)
 
-passport.serializeUser((user, done) => done(null, user._id))
+passport.serializeUser((user, done) => {
+  console.log('-1-1-1-1-1-1')
+
+  done(null, user._id)
+})
 
 passport.deserializeUser((id, done) => {
   (async () => {
     try {
+      console.log('111111')
       const user = await User.findById(id)
       done(null, user)
     } catch (error) {
@@ -29,12 +37,10 @@ export default function auth () {
   ])
 }
 
-export function isAuthenticated () {
-  return passport.authenticate('jwt')
-}
-
-export function authEmail () {
-  return passport.authenticate('email')
+export const authJwt = () => passport.authenticate('jwt')
+export const authEmail = () => passport.authenticate('email')
+export const authLocal = () => {
+  return passport.authenticate('local')
 }
 
 // After autentication using one of the strategies, generate a JWT token
@@ -47,7 +53,7 @@ export function generateToken () {
       const _token = jwt.sign({ id: user }, config.secret)
       const token = `JWT ${_token}`
 
-      const currentUser = await User.findOne({_id: user})
+      const currentUser = await User.findOne({ _id: user })
 
       ctx.status = 200
       ctx.body = {
@@ -56,17 +62,4 @@ export function generateToken () {
       }
     }
   }
-}
-
-// Web Facebook Authentication
-export function isFacebookAuthenticated () {
-  return passport.authenticate('facebook', {
-    scope: ['email']
-  })
-}
-
-export function isFacebookAuthenticatedCallback () {
-  return passport.authenticate('facebook', {
-    failureRedirect: '/login'
-  })
 }

@@ -5,4 +5,4 @@ const base = (router) => {
   })
 }
 
-module.exports = base
+export default base

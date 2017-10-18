@@ -10,6 +10,7 @@ import {
 
 import UserType from './UserType'
 import { User } from '../../controller'
+import { updateToken } from '../../../tools/account'
 
 const UserMutation = {
   register: {
@@ -31,10 +32,15 @@ const UserMutation = {
       account: { type: GraphQLString },
       password: { type: GraphQLString }
     },
-    resolve: async (root, params) => {
+    resolve: async (root, params, req) => {
       console.log('login', root)
       const user = await User.login(params)
+      if (user) {
+        return updateToken(user, req)
+      }
       return user
+      // return await generateToken(user, req)
+
     }
   },
   logout: {

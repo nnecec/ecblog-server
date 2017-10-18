@@ -13,5 +13,5 @@ export const facebook = {
 
 // TODO - add a real secret key
 export const auth = {
-  secret: 'my-secret-code'
+  secret: 'secret'
 }

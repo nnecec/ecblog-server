@@ -18,14 +18,10 @@ export default function middleware (app) {
     // 打印日志
     logger(),
     // 解析
-    convert(bodyParser({
-      extendTypes: {
-        json: ['application/graphql']
-      }
-    })),
+    bodyParser(),
     session({
       key: config.session.key,
-      resave: config.session.saveUninitialized,
+      resave: config.session.resave,
       saveUninitialized: config.session.saveUninitialized,
       maxAge: config.session.maxAge,
       store: RedisClient({

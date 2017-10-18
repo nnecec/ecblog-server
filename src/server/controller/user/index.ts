@@ -34,8 +34,7 @@ const UserController = {
   detail: async (params) => {
 
   },
-  getUserByToken: async (params) => {
-    const token = params.token
+  getUserByToken: async (token) => {
     const user = await User.findOne({ token })
     return user
   }
