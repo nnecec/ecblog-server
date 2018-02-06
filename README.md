@@ -7,55 +7,66 @@ It is built on top of the Node.js, koa, GraphQL, mongoDB, redis and TypeScript.
 ## Getting Started
 
 ```bash
-npm install: install dependencies
+npm install
+npm start
 
-npm start: run server
-
-# when you keeping server running at port 4001
-npm run build.doc: generate static GraphQL doc
+npm run build.doc # when you keeping server running at port 4001
 ```
 
 ## Directory Structure
 
 ```
 ├── src
+│   ├── config
+│   │   └── index.ts # project config
+│   │
 │   ├── db
 │   │   ├── config.ts # mongoDB config
 │   │   └── index.ts # connect to mongoDB
 │   │
 │   ├── server
-│   │   ├── controller # DB controller
-│   │   │   ├── demo # demo controller
+│   │   ├── auth # auth
+│   │   │
+│   │   ├── controller # controllers
+│   │   │   ├── todo # todo controller
 │   │   │   ├── ···
-│   │   │   └── index.ts # export controller
+│   │   │   └── index.ts # controller collection
+│   │   │
 │   │   ├── graphql
-│   │   │   ├── demo # demo graphql
-│   │   │   │   ├── DemoMutation.ts # Demo mutation
-│   │   │   │   ├── DemoQuery.ts # Demo Query
-│   │   │   │   ├── DemoType.ts # Demo Type
-│   │   │   │   └── index.ts # export demo graphql config
+│   │   │   ├── todo # todo graphql
+│   │   │   │   ├── TodoMutation.ts # Todo mutation
+│   │   │   │   ├── TodoQuery.ts # Todo Query
+│   │   │   │   ├── TodoType.ts # Todo Type
+│   │   │   │   └── index.ts # export Todo graphql config
 │   │   │   ├── ···
-│   │   │   └── index.ts # export graphql schema
+│   │   │   └── index.ts # graphql collection
+│   │   │
 │   │   ├── middleware
-│   │   │   └── index.ts # server middleware config
+│   │   │   └── index.ts # server middleware
+│   │   │
 │   │   ├── model # mongoDB model
 │   │   │   ├── todo
 │   │   │   ├── ···
-│   │   │   └── index.ts # export mongoDB model
-│   │   ├── routes 路由
+│   │   │   └── index.ts # model collection
+│   │   │
+│   │   ├── routes # routes
+│   │   │   ├── api # not through graphql
+│   │   │   │
 │   │   │   ├── base
 │   │   │   │   └── graphql.ts # catch graphql request
-│   │   │   └── index.ts # compose all routes
+│   │   │   │
+│   │   │   └── index.ts # routes collection
+│   │   │
 │   │   └── index.ts # export app
+│   │
+│   ├── tools # tool
 │   │
 │   └── index.ts # start server
 │
-├── .babelrc
-├── .gitignore
-├── package-lock.json
+├── test # test
+│
 ├── package.json
 ├── README.md
 ├── tsconfig.json
-├── tslint.json
-└── yarn.lock
+└── tslint.json
 ```

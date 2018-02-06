@@ -5,24 +5,18 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowJs": true,
-    "sourceMap": true,
     "typeRoots": [
       "node_modules/@types/"
     ],
-    // "allowSyntheticDefaultImports": true,
-    // "importHelpers": true,
-    // "alwaysStrict": true,
-    // "forceConsistentCasingInFileNames": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noImplicitReturns": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitAny": false,
-    // "noImplicitThis": false,
-    // "strictNullChecks": false
-    // "declaration": true
+    "allowJs": true,    
+    "alwaysStrict": true,    
+    "declaration": false,
+    "importHelpers": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "sourceMap": true,    
     "lib": [
       "es6",
       "dom",
