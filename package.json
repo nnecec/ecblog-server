@@ -1,7 +1,7 @@
 {
-  "name": "koa-graph-server",
+  "name": "nnecec-blog-server",
   "version": "0.1.0",
-  "description": "Server build on NodeJs, GraphQL, Koa.",
+  "description": "The blog server build on Node.js, GraphQL, Koa2.",
   "main": "index.js",
   "scripts": {
     "build": "npm run build.ts",
