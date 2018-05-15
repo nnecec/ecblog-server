@@ -8,17 +8,15 @@
     "typeRoots": [
       "node_modules/@types/"
     ],
-    "allowJs": true,
-    "alwaysStrict": true,
+    "allowJs": true,    
+    "alwaysStrict": true,    
     "declaration": false,
     "importHelpers": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "sourceMap": true,    
     "lib": [
       "es6",
       "dom",

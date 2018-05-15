@@ -1,11 +1,8 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers'
 import User from '../../model/User'
 
-@Controller('/user')
-export default class UserController {
+const UserController = {
 
-  @Post('/signup')
-  async signup (params) {
+  register: async (params) => {
     const { account, password } = params
     const user = await User.findOne({ account })
     if (user) {
@@ -13,9 +10,8 @@ export default class UserController {
     }
     const newUser = await User.create(params)
     return newUser
-  }
-  @Post('/login')
-  async login (params) {
+  },
+  login: async (params) => {
     const { account, password } = params
     const user: any = await User.findOne({ account })
     if (user) {
@@ -25,26 +21,23 @@ export default class UserController {
       throw Error('Your password is wrong.')
     }
     throw Error('This account is not existed.')
-  }
-  @Post('/logout')
-  async logout (params) {
+  },
+  logout: async (params) => {
 
-  }
-  @Post('/update')
-  async update (params) {
+  },
+  updateUser: async (params) => {
 
-  }
-  @Post('/list')
-  async list () {
+  },
+  list: async () => {
 
-  }
-  @Post('/detail')
-  async detail (params) {
+  },
+  detail: async (params) => {
 
-  }
-  @Post('/token')
-  async getUserByToken (token) {
+  },
+  getUserByToken: async (token) => {
     const user = await User.findOne({ token })
     return user
   }
 }
+
+export default UserController

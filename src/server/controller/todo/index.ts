@@ -1,20 +1,16 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers'
 import Todo from '../../model/todo'
-@Controller('/todo')
-export default class TodoController {
 
-  @Post('/add')
-  async add (params) {
+const TodoController = {
+
+  add: async (params) => {
     try {
       const result = await Todo.create(params)
       return result
     } catch (err) {
       throw (err)
     }
-  }
-
-  @Post('/remove')
-  async remove (params) {
+  },
+  remove: async (params) => {
     const ids = params.id
 
     try {
@@ -23,16 +19,12 @@ export default class TodoController {
     } catch (err) {
       params.throw(err)
     }
-  }
-
-  @Get('/list')
-  async list (id?) {
+  },
+  list: async (id?) => {
     const list = await Todo.find()
     return list
-  }
-
-  @Post('/update')
-  async update (params) {
+  },
+  update: async (params) => {
     const { id, title, description, completed } = params
     try {
       const result = await Todo.findByIdAndUpdate(id, {
@@ -46,3 +38,5 @@ export default class TodoController {
     }
   }
 }
+
+export default TodoController
