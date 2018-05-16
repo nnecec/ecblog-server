@@ -18,7 +18,7 @@ const Schema: GraphQLSchema = new GraphQLSchema({
       removeTodo: TodoMutation.remove,
       updateTodo: TodoMutation.update,
 
-      register: UserMutation.register,
+      signup: UserMutation.signup,
       login: UserMutation.login,
       logout: UserMutation.logout
     }

@@ -9,7 +9,7 @@ const routes = (router) => {
       schema: Schema,
       pretty: true,
       graphiql: true,
-      rootValue: await getRootValue(request)
+      // rootValue: await getRootValue(request)
     }))
     )
 }

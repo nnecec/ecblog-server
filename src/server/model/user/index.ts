@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt'
 const Schema = mongoose.Schema
 
 const UserSchema: mongoose.Schema = new Schema({
-  account: {
+  username: {
     type: String,
     required: true,
     unique: true
@@ -14,12 +14,10 @@ const UserSchema: mongoose.Schema = new Schema({
     type: String
   },
   email: {
-    type: String,
-    unique: true
+    type: String
   },
   nickname: {
-    type: String,
-    unique: true
+    type: String
   },
   bio: {
     type: String
@@ -57,7 +55,7 @@ UserSchema
   .virtual('data')
   .get(() => ({
     _id: this._id,
-    account: this.account,
+    username: this.username,
     email: this.email,
     nickname: this.nickname,
     bio: this.bio,

@@ -5,7 +5,7 @@ import User from '../../model/User'
 
 export default new LocalStrategy(async (username, done) => {
   try {
-    const user = await User.findOne({ account: username })
+    const user = await User.findOne({ username })
     if (!user) {
       done(null, false)
     }

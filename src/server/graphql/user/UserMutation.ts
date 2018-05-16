@@ -13,23 +13,25 @@ import { User } from '../../controller'
 import { updateToken } from '../../../tools/account'
 
 const UserMutation = {
-  register: {
+  signup: {
     type: UserType,
-    description: 'register User',
+    description: 'signup',
     args: {
-      account: { type: GraphQLString },
+      username: { type: GraphQLString },
       password: { type: GraphQLString }
     },
     resolve: async (root, params) => {
-      const user = await User.register(params)
+      console.log('signup', root, params)
+
+      const user = await User.signup(params)
       return user
     }
   },
   login: {
     type: UserType,
-    description: 'login User',
+    description: 'login',
     args: {
-      account: { type: GraphQLString },
+      username: { type: GraphQLString },
       password: { type: GraphQLString }
     },
     resolve: async (root, params, req) => {
