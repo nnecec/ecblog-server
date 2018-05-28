@@ -2,7 +2,7 @@
 
 blog-server is a open-source GraphQL server.
 
-It is built on top of the Node.js, koa, GraphQL, mongoDB, redis and TypeScript.
+It is built on Node.js, koa, GraphQL, mongoDB, redis and TypeScript.
 
 ## Getting Started
 
@@ -28,16 +28,16 @@ npm run build.doc # when you keeping server running at port 4001
 │   │   ├── auth # auth
 │   │   │
 │   │   ├── controller # controllers
-│   │   │   ├── todo # todo controller
+│   │   │   ├── user # user controller
 │   │   │   ├── ···
 │   │   │   └── index.ts # controller collection
 │   │   │
 │   │   ├── graphql
-│   │   │   ├── todo # todo graphql
-│   │   │   │   ├── TodoMutation.ts # Todo mutation
-│   │   │   │   ├── TodoQuery.ts # Todo Query
-│   │   │   │   ├── TodoType.ts # Todo Type
-│   │   │   │   └── index.ts # export Todo graphql config
+│   │   │   ├── user # user graphql
+│   │   │   │   ├── UserMutation.ts # User mutation
+│   │   │   │   ├── UserQuery.ts # User Query
+│   │   │   │   ├── UserType.ts # User Type
+│   │   │   │   └── index.ts # export User graphql config
 │   │   │   ├── ···
 │   │   │   └── index.ts # graphql collection
 │   │   │
@@ -45,7 +45,7 @@ npm run build.doc # when you keeping server running at port 4001
 │   │   │   └── index.ts # server middleware
 │   │   │
 │   │   ├── model # mongoDB model
-│   │   │   ├── todo
+│   │   │   ├── user
 │   │   │   ├── ···
 │   │   │   └── index.ts # model collection
 │   │   │
