@@ -8,10 +8,10 @@ const opts = {
   secretOrKey: auth.secret
 }
 
-export default new JWTStrategy(opts, async (jwt_payload, done) => {
-  console.log(jwt_payload)
-  const user = await User.findById(jwt_payload.id)
-  console.log(jwt_payload, user)
+export default new JWTStrategy(opts, async (jwtPayload, done) => {
+  console.log(jwtPayload)
+  const user = await User.findById(jwtPayload.id)
+  console.log(jwtPayload, user)
   if (user) {
     done(null, user)
   } else {

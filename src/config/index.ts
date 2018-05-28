@@ -2,9 +2,12 @@
 const config = {
   session: {
     key: process.env.SESSION_SECRET || 'kgm-secret',
-    resave: false,
-    saveUninitialized: false,
-    maxAge: 60000
+    maxAge: 60000,
+    overwrite: true,
+    httpOnly: true,
+    signed: true,
+    rolling: false,
+    renew: false
   },
   logger: {
     transports: {

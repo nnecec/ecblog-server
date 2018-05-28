@@ -30,20 +30,11 @@ passport.deserializeUser((id, done) => {
   })()
 })
 
-export default function auth () {
-  return compose([
-    passport.initialize(),
-    passport.session()
-  ])
-}
-
 export const authJwt = () => passport.authenticate('jwt')
 export const authEmail = () => passport.authenticate('email')
-export const authLocal = () => {
-  return passport.authenticate('local')
-}
+export const authLocal = () => passport.authenticate('local')
 
-// After autentication using one of the strategies, generate a JWT token
+// After Authentication using one of the strategies, generate a JWT token
 export function generateToken () {
   return async ctx => {
     const { user } = ctx.passport
@@ -62,4 +53,11 @@ export function generateToken () {
       }
     }
   }
+}
+
+export default function auth () {
+  return compose([
+    passport.initialize(),
+    passport.session()
+  ])
 }

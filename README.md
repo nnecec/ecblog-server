@@ -1,6 +1,6 @@
-# koa-graph-mongo
+# blog-server
 
-Koa server is a open-source GraphQL server.
+blog-server is a open-source GraphQL server.
 
 It is built on top of the Node.js, koa, GraphQL, mongoDB, redis and TypeScript.
 

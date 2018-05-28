@@ -1,8 +1,5 @@
 import * as compose from 'koa-compose'
 import * as Router from 'koa-router'
-import * as graphQLHTTP from 'koa-graphql'
-
-import Schema from '../graphql'
 import * as importDir from 'import-dir'
 
 const routerConfigs: Array<any> = [{ folder: 'base', prefix: '' }, { folder: 'api', prefix: '/api' }]
