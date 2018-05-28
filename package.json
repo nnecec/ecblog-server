@@ -58,7 +58,6 @@
     "@types/graphql": "^0.13.1",
     "@types/koa": "^2.0.45",
     "@types/mongoose": "^5.0.15",
-    "import-dir": "0.0.1",
     "nodemon": "^1.17.5",
     "ts-node": "^6.0.5",
     "tslint": "^5.10.0",

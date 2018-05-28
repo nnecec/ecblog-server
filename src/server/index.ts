@@ -1,4 +1,5 @@
 import * as Koa from 'koa'
+import * as passport from 'koa-passport'
 
 import middleware from './middleware'
 import auth from './auth'
@@ -10,12 +11,12 @@ app.keys = ['secret-key']
 // import middleware
 app.use(middleware(app))
 
-// import auth
-app.use(auth())
 // import routes
-app.use(routes())
+app.use(routes(app))
 
 app.use((ctx) => {
+  console.log(ctx)
+
   ctx.status = 404
 })
 

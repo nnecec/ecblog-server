@@ -5,7 +5,7 @@ import * as logger from 'koa-logger'
 import * as helmet from 'koa-helmet'
 
 import session from './session'
-import auth from '../auth'
+import passport from '../auth'
 
 export default function middleware (app) {
   return compose([
@@ -19,7 +19,8 @@ export default function middleware (app) {
     logger(),
     // session
     session(app),
-    // auth
-    auth()
+    // passport
+    passport.initialize(),
+    passport.session()
   ])
 }

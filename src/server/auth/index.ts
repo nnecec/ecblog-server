@@ -10,29 +10,19 @@ import emailStrategy from './strategies/email'
 import localStrategy from './strategies/local'
 
 passport.use('jwt', jwtStrategy)
+passport.use('email', emailStrategy)
 passport.use('local', localStrategy)
 
 passport.serializeUser((user, done) => {
-  console.log('-1-1-1-1-1-1')
-
-  done(null, user._id)
+  done(null, {
+    id: user.id,
+    username: user.username
+  })
 })
 
-passport.deserializeUser((id, done) => {
-  (async () => {
-    try {
-      console.log('111111')
-      const user = await User.findById(id)
-      done(null, user)
-    } catch (error) {
-      done(error)
-    }
-  })()
+passport.deserializeUser((user, done) => {
+  done(null, user)
 })
-
-export const authJwt = () => passport.authenticate('jwt')
-export const authEmail = () => passport.authenticate('email')
-export const authLocal = () => passport.authenticate('local')
 
 // After Authentication using one of the strategies, generate a JWT token
 export function generateToken () {
@@ -55,9 +45,4 @@ export function generateToken () {
   }
 }
 
-export default function auth () {
-  return compose([
-    passport.initialize(),
-    passport.session()
-  ])
-}
+export default passport
