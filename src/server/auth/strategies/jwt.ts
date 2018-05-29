@@ -1,11 +1,11 @@
 
 import User from '../../model/User'
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt'
-import { auth } from '../config'
+import { jwtConfig } from '../config'
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromHeader('x-Access-Token'),
-  secretOrKey: auth.secret
+  secretOrKey: jwtConfig.secret
 }
 
 export default new JWTStrategy(opts, async (jwtPayload, done) => {

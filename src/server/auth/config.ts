@@ -11,7 +11,10 @@ export const facebook = {
   callbackUrl: 'http://localhost:3000/api/auth/facebook/callback'
 }
 
-// TODO - add a real secret key
-export const auth = {
-  secret: 'secret'
+export const jwtConfig = {
+  secret: 'ecjwt',
+  options: {
+    expiresIn: '30d'
+
+  }
 }
