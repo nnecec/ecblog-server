@@ -21,8 +21,6 @@ const UserMutation = {
       password: { type: GraphQLString }
     },
     resolve: async (root, params) => {
-      console.log('signup', params)
-
       const user = await User.signup(params)
       return user
     }

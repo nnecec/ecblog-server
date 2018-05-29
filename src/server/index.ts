@@ -11,12 +11,12 @@ app.keys = ['secret-key']
 // import middleware
 app.use(middleware(app))
 
+// import auth
+app.use(auth(app))
 // import routes
 app.use(routes(app))
 
 app.use((ctx) => {
-  console.log(ctx)
-
   ctx.status = 404
 })
 

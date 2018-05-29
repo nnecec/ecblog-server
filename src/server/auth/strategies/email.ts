@@ -2,7 +2,7 @@ import User from '../../model/User'
 import { Strategy as LocalStrategy } from 'passport-local'
 
 export default new LocalStrategy(async (ctx, done) => {
-  console.log('Email Strategy: ', ctx.body)
+  console.log('LocalStrategy: ', ctx)
 
   try {
     // Test whether is a login using email and password

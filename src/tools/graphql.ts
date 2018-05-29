@@ -1,8 +1,6 @@
 import User from '../server/controller/user'
 
 export const getRootValue = async (req) => {
-  console.log(req)
-
   const token = req.session.token
   let root = {}
   if (token) {

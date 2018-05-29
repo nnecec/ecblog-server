@@ -9,12 +9,15 @@ const opts = {
 }
 
 export default new JWTStrategy(opts, async (jwtPayload, done) => {
-  console.log(jwtPayload)
-  const user = await User.findById(jwtPayload.id)
-  console.log(jwtPayload, user)
-  if (user) {
-    done(null, user)
-  } else {
-    done(null, false)
-  }
+  console.log('jwtPayload', jwtPayload)
+  User.findOne({ id: jwtPayload.sub }, function (err, user) {
+    if (err) {
+      return done(err, false)
+    }
+    if (user) {
+      return done(null, user)
+    } else {
+      return done(null, false)
+    }
+  })
 })
