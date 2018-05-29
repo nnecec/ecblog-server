@@ -14,14 +14,14 @@ import { User } from '../../controller'
 const UserQuery = {
   list: {
     type: new GraphQLList(UserType),
-    descriptions: 'all User list',
+    descriptions: 'user list',
     resolve () {
       return User.list()
     }
   },
   findById: {
     type: UserType,
-    descriptions: 'find by id',
+    descriptions: 'get user detail by id',
     args: {
       id: {
         type: new GraphQLNonNull(GraphQLID),

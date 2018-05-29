@@ -42,7 +42,7 @@ const UserMutation = {
   },
   logout: {
     type: UserType,
-    description: 'logout User',
+    description: 'logout',
     resolve: async (root, params) => {
       console.log(params)
     }

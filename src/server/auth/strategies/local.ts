@@ -1,18 +1,20 @@
-import * as passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 
 import User from '../../model/User'
 
 export default new LocalStrategy(async (username, password, done) => {
   try {
-    console.log('LocalStrategy')
+    if (username && password) {
+      const user = await User.findOne({ username, password })
 
-    const user = await User.findOne({ username })
-    if (!user) {
+      if (!user) {
+        done(null, false, { message: 'Incorrect username.' })
+      }
+
+      done(null, user)
+    } else {
       done(null, false)
     }
-
-    done(null, user)
     // TODO: check password
   } catch (error) {
     done(error)

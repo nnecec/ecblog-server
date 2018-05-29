@@ -5,19 +5,14 @@ import { printSchema } from 'graphql'
 import * as passport from 'koa-passport'
 
 import Schema from '../graphql'
+import { generateToken } from '../auth/passport'
 
 export default function routes (app) {
   const router = new Router()
 
-  router.get('/account/login',
-    (ctx, next) => {
-      console.log('/account/login', ctx.isAuthenticated())
-      next()
-    },
-    passport.authenticate('local', {
-      failureFlash: true,
-      prompt: 'select_account'
-    })
+  router.get('/auth/login',
+    passport.authenticate('local', { failureFlash: true }),
+    generateToken()
   )
 
   router.get('/graphql/schema', (ctx, next) => {

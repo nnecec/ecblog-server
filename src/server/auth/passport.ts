@@ -1,12 +1,11 @@
 import * as passport from 'koa-passport'
-import * as compose from 'koa-compose'
-import User from '../model/User'
 import * as jwt from 'jsonwebtoken'
+
+import User from '../model/User'
 import { auth as config } from './config'
 
 // Strategies
 import jwtStrategy from './strategies/jwt'
-import emailStrategy from './strategies/email'
 import localStrategy from './strategies/local'
 
 passport.serializeUser((user, done) => {
@@ -21,18 +20,17 @@ passport.deserializeUser((user, done) => {
 })
 
 passport.use('jwt', jwtStrategy)
-passport.use('email', emailStrategy)
 passport.use('local', localStrategy)
 
 // After Authentication using one of the strategies, generate a JWT token
 export function generateToken () {
   return async ctx => {
-    const { user } = ctx.passport
+    const { user } = ctx.state
     if (user === false) {
       ctx.status = 401
     } else {
-      const _token = jwt.sign({ id: user }, config.secret)
-      const token = `JWT ${_token}`
+      const jwtToken = jwt.sign({ id: user }, config.secret)
+      const token = `JWT ${jwtToken}`
 
       const currentUser = await User.findOne({ _id: user })
 
