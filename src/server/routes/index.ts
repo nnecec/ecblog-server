@@ -20,12 +20,17 @@ export default function routes (app) {
     ctx.body = printSchema(Schema)
   })
 
-  router.all('/graphql', graphQLHTTP(async (req, res, graphQLParams) => ({
-    schema: Schema,
-    pretty: true,
-    graphiql: true
-    // rootValue: await getRootValue(req)
-  })))
+  router.use(passport.authenticate('jwt', { session: false }))
+
+  router.all('/graphql',
+
+    graphQLHTTP(async (req, res, graphQLParams) => ({
+      schema: Schema,
+      pretty: true,
+      graphiql: true
+      // rootValue: await getRootValue(req)
+    }))
+  )
 
   return compose([
     router.routes(),

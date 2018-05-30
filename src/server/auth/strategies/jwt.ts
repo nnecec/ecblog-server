@@ -4,20 +4,21 @@ import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt'
 import { jwtConfig } from '../config'
 
 const opts = {
-  jwtFromRequest: ExtractJwt.fromHeader('x-Access-Token'),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
   secretOrKey: jwtConfig.secret
 }
 
 export default new JWTStrategy(opts, async (jwtPayload, done) => {
   console.log('jwtPayload', jwtPayload)
-  User.findOne({ id: jwtPayload.sub }, function (err, user) {
-    if (err) {
-      return done(err, false)
-    }
+  try {
+    const user = await User.findOne({ _id: jwtPayload.id })
+
     if (user) {
-      return done(null, user)
+      done(null, user)
     } else {
-      return done(null, false)
+      done(null, false)
     }
-  })
+  } catch (err) {
+    done(err, false)
+  }
 })
