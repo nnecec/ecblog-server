@@ -1,13 +1,17 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql'
 import { UserMutation, UserQuery } from './user'
+import { ArticleMutation, ArticleQuery } from './article'
 
 const Schema: GraphQLSchema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'RootQuery',
     fields: {
       getUser: UserQuery.list,
-      getUserDetail: UserQuery.findById
+      getUserDetail: UserQuery.findById,
 
+      // article
+      getArticleList: ArticleQuery.list,
+      getArticleDetail: ArticleQuery.detail
     }
   }),
   mutation: new GraphQLObjectType({
@@ -15,7 +19,11 @@ const Schema: GraphQLSchema = new GraphQLSchema({
     fields: {
       signup: UserMutation.signup,
       login: UserMutation.login,
-      logout: UserMutation.logout
+      logout: UserMutation.logout,
+
+      // article
+      editArticle: ArticleMutation.saveOrUpdate
+
     }
   })
 })

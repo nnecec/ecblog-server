@@ -6,7 +6,8 @@ const UserController = {
     const { username, password } = params
     const user = await User.findOne({ username })
     if (user) {
-      throw Error('This username is existed.')
+      return null
+      // throw Error('This username is existed.')
     }
     const newUser = await User.create(params)
     return newUser
