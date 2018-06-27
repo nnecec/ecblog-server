@@ -1,9 +1,9 @@
-import UserMutation from './UserMutation'
-import UserQuery from './UserQuery'
-import UserType from './UserType'
+import ArticleMutation from './ArticleMutation'
+import ArticleQuery from './ArticleQuery'
+import ArticleType from './ArticleType'
 
 export {
-  UserMutation,
-  UserQuery,
-  UserType
+  ArticleMutation,
+  ArticleQuery,
+  ArticleType
 }
