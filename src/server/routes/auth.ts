@@ -21,6 +21,11 @@ const signup = async (ctx, next) => {
   }
 }
 export default (router) => {
+  router.get('/', (ctx, next) => {
+    const home = 'home page changed'
+    ctx.body = home
+  })
+
   router.post('/auth/login',
     passport.authenticate('local', { failureFlash: true }),
     generateToken()
