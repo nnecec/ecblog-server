@@ -5,7 +5,7 @@ import UserController from '../controller/user'
 const signup = async (ctx, next) => {
   const { username, password } = ctx.request.body
 
-  // TODO - improve validation
+  // TODO:improve validation
   if (username && password) {
     let user = await UserController.signup({ username, password })
 

@@ -15,11 +15,13 @@ export default new LocalStrategy(async (username, password, done) => {
 
         if (user.hashedPassword === crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha1').toString('base64')) {
           done(null, user)
+        } else {
+          done(null, false, { message: 'Incorrect password.' })
         }
       }
 
     } else {
-      done(null, false)
+      done(null, false, { message: 'Empty username and password.' })
     }
     // TODO: check password
   } catch (error) {

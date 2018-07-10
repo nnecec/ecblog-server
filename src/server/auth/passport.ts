@@ -25,7 +25,9 @@ passport.use('local', localStrategy)
 // After Authentication, generate a token
 export function generateToken () {
   return async ctx => {
+    console.log(ctx)
     const { user } = ctx.state
+
     if (user === false) {
       ctx.status = 401
     } else {
