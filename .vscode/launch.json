@@ -10,8 +10,10 @@
       "name": "Attach",
       "restart": true,
       "sourceMaps": true,
-      "processId": "${command:PickProcess}",
-      "protocol": "inspector",
+      "outFiles": [
+        "${workspaceFolder}/dist/src/**/*.js"
+      ],
+      "port": 9229
     }
   ]
 }

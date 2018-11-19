@@ -20,10 +20,10 @@ const signup = async (ctx, next) => {
     ctx.body = { status: 'error', message: 'Invalid username or password.' }
   }
 }
+
 export default (router) => {
   router.get('/', (ctx, next) => {
-    const home = 'home page changed'
-    ctx.body = home
+    ctx.body = 'Home'
   })
 
   router.post('/auth/login',

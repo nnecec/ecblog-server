@@ -9,7 +9,9 @@ export default function connectDatabase (uri: string) {
       .on('close', () => logger.error('Database connection closed.'))
       .once('open', () => resolve((mongoose as any).connections[0]))
 
-    mongoose.connect(uri);
+    mongoose.set('useCreateIndex', true)
+
+    mongoose.connect(uri, { useNewUrlParser: true });
     (mongoose as any).Promise = bluebird.Promise
   })
 }

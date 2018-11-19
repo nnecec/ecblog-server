@@ -83,7 +83,7 @@ UserSchema.methods = {
   // generate hashed password
   encryptPassword: function (password) {
     if (!password || !this.salt) return ''
-    const salt = new Buffer(this.salt, 'base64')
+    const salt = Buffer.from(this.salt, 'base64')
     return crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha1').toString('base64')
   }
 }

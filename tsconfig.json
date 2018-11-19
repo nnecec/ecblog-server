@@ -8,15 +8,14 @@
     "typeRoots": [
       "node_modules/@types/"
     ],
-    "allowJs": true,    
-    "alwaysStrict": true,    
+    "alwaysStrict": true,
     "declaration": false,
     "importHelpers": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
-    "sourceMap": true,    
+    "sourceMap": true,
     "lib": [
       "es6",
       "dom",

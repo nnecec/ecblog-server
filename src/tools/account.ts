@@ -7,5 +7,5 @@ export const updateToken = async (user, req) => {
   const token = uuid.v4()
   req.session.token = token
   user.token = token
-  return await user.save()
+  return user.save()
 }

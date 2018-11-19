@@ -11,7 +11,7 @@ export default new LocalStrategy(async (username, password, done) => {
       if (!user) {
         done(null, false, { message: 'Incorrect username.' })
       } else {
-        const salt = new Buffer(user.salt, 'base64')
+        const salt = Buffer.from(user.salt, 'base64')
 
         if (user.hashedPassword === crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha1').toString('base64')) {
           done(null, user)
@@ -19,7 +19,6 @@ export default new LocalStrategy(async (username, password, done) => {
           done(null, false, { message: 'Incorrect password.' })
         }
       }
-
     } else {
       done(null, false, { message: 'Empty username and password.' })
     }

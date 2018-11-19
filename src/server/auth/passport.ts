@@ -25,10 +25,9 @@ passport.use('local', localStrategy)
 // After Authentication, generate a token
 export function generateToken () {
   return async ctx => {
-    console.log(ctx)
     const { user } = ctx.state
 
-    if (user === false) {
+    if (!user) {
       ctx.status = 401
     } else {
       const jwtToken = jwt.sign(
@@ -40,7 +39,10 @@ export function generateToken () {
 
       ctx.status = 200
       ctx.body = {
-        token
+        token,
+        username: user.username,
+        nickname: user.nickname,
+        email: user.email
       }
     }
   }
