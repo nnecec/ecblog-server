@@ -1,3 +1,3 @@
-export const development: string = 'mongodb://localhost:27017/ecServer'
-export const production: string = 'mongodb://localhost:27017/ecServer'
-export const test: string = 'mongodb://localhost:27017/ecServer-test'
+export const development = 'mongodb://localhost:27017/ecServer'
+export const production = 'mongodb://localhost:27017/ecServer'
+export const test = 'mongodb://localhost:27017/ecServer-test'

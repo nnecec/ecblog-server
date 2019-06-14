@@ -11,15 +11,15 @@ import connectDatabase from './db'
 import { development, test, production } from './db/config'
 
 const port = process.env.PORT || 4201
-const databaseConfig = (process.env.NODE_ENV === 'production')
-  ? production
-  : development;
-
-(async () => {
+const databaseConfig =
+  process.env.NODE_ENV === 'production' ? production : development
+;(async () => {
   try {
     // connect to db
     const dataInfo: any = await connectDatabase(databaseConfig)
-    logger.debug(`Connected to ${dataInfo.host}:${dataInfo.port}/${dataInfo.name}`)
+    logger.debug(
+      `Connected to ${dataInfo.host}:${dataInfo.port}/${dataInfo.name}`
+    )
   } catch (error) {
     logger.error(`Unable to connect to database:${error}`)
   }

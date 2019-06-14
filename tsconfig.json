@@ -1,8 +1,7 @@
 {
-  // "compileOnSave": true,
   "compilerOptions": {
     "outDir": "./dist",
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "typeRoots": [
@@ -19,7 +18,6 @@
     "lib": [
       "es6",
       "dom",
-      "esnext.asynciterable"
     ]
   },
   "include": [

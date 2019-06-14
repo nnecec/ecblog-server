@@ -1,6 +1,6 @@
 import User from '../server/controller/user'
 
-export const getRootValue = async (req) => {
+export const getRootValue = async req => {
   const token = req.session.token
   let root = {}
   if (token) {
