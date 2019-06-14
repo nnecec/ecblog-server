@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose'
 import * as bluebird from 'bluebird'
-import logger from '../tools/logger'
+import logger from '../utils/logger'
 
 export default function connectDatabase (uri: string) {
   return new Promise((resolve, reject) => {

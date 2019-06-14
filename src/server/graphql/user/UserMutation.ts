@@ -10,7 +10,7 @@ import {
 
 import UserType from './UserType'
 import { User } from '../../controller'
-import { updateToken } from '../../../tools/account'
+import { updateToken } from '../../../utils/account'
 
 const UserMutation = {
   signup: {
@@ -47,7 +47,6 @@ const UserMutation = {
       console.log(params)
     }
   }
-
 }
 
 export default UserMutation

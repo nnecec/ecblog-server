@@ -59,7 +59,7 @@ npm run build.doc # when you keeping server running at port 4001
 │   │   │
 │   │   └── index.ts # export app
 │   │
-│   ├── tools # tool
+│   ├── utils # utils
 │   │
 │   └── index.ts # start server
 │

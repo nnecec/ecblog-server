@@ -1,8 +1,8 @@
-import './tools/polyfill'
-import './tools/redis'
+import './utils/polyfill'
+// import ./utils/redis'
 
 import app from './server'
-import logger from './tools/logger'
+import logger from './utils/logger'
 
 // DB connect function
 import connectDatabase from './db'

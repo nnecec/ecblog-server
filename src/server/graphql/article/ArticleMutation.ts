@@ -10,7 +10,7 @@ import {
 
 import ArticleType from './ArticleType'
 import { Article } from '../../controller'
-import { updateToken } from '../../../tools/account'
+import { updateToken } from '../../../utils/account'
 
 const ArticleMutation = {
   saveOrUpdate: {
@@ -23,11 +23,8 @@ const ArticleMutation = {
       status: { type: GraphQLInt },
       category: { type: GraphQLInt }
     },
-    resolve: async (root, params) => {
-
-    }
+    resolve: async (root, params) => {}
   }
-
 }
 
 export default ArticleMutation
