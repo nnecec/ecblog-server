@@ -1,9 +1,2 @@
-import UserMutation from './UserMutation'
-import UserQuery from './UserQuery'
-import UserType from './UserType'
-
-export {
-  UserMutation,
-  UserQuery,
-  UserType
-}
+export { default as UserType } from './type'
+export { default as UserResolver } from './resolver'

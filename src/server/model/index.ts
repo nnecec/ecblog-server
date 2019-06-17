@@ -1,7 +1,2 @@
-import User from './user'
-import Article from './article'
-
-export {
-  User,
-  Article
-}
+export { default as Article } from './article'
+export { default as User } from './user'

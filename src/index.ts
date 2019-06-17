@@ -1,5 +1,4 @@
 import './utils/polyfill'
-// import ./utils/redis'
 
 import app from './server'
 import logger from './utils/logger'
@@ -10,7 +9,7 @@ import connectDatabase from './db'
 // DB config
 import { development, test, production } from './db/config'
 
-const port = process.env.PORT || 4201
+const port = process.env.PORT || 4002
 const databaseConfig =
   process.env.NODE_ENV === 'production' ? production : development
 ;(async () => {

@@ -51,22 +51,19 @@ const UserSchema: mongoose.Schema = new Schema({
   }
 })
 
-UserSchema
-  .virtual('data')
-  .get(() => ({
-    _id: this._id,
-    username: this.username,
-    email: this.email,
-    nickname: this.nickname,
-    bio: this.bio,
-    avatar: this.avatar,
-    github: this.github,
-    created: this.created,
-    updated: this.updated
-  }))
+UserSchema.virtual('data').get(() => ({
+  _id: this._id,
+  username: this.username,
+  email: this.email,
+  nickname: this.nickname,
+  bio: this.bio,
+  avatar: this.avatar,
+  github: this.github,
+  created: this.created,
+  updated: this.updated
+}))
 
-UserSchema
-  .virtual('password')
+UserSchema.virtual('password')
   .set(function (password) {
     this._password = password
     this.salt = this.makeSalt()
@@ -84,7 +81,9 @@ UserSchema.methods = {
   encryptPassword: function (password) {
     if (!password || !this.salt) return ''
     const salt = Buffer.from(this.salt, 'base64')
-    return crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha1').toString('base64')
+    return crypto
+      .pbkdf2Sync(password, salt, 10000, 64, 'sha1')
+      .toString('base64')
   }
 }
 
