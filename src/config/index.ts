@@ -1,5 +1,4 @@
-
-const config = {
+export default {
   session: {
     key: process.env.SESSION_SECRET || 'kgm-secret',
     maxAge: 60000,
@@ -28,5 +27,3 @@ const config = {
     cookie: { maxAge: 60000 * 60 * 24 * 365 }
   }
 }
-
-export default config

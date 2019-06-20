@@ -1,24 +1,8 @@
-import { gql } from 'apollo-server-koa'
 import { merge } from 'lodash'
 
+import { Query, Resolver } from './common'
 import { UserType, UserResolver } from './user'
-import { DemoType, DemoResolver } from './demo'
+import { TodoType, TodoResolver } from './todo'
 
-const Query = gql`
-  type Query {
-    user: String
-    demo: Demo
-  }
-`
-
-const Resolver = {
-  Query: {
-    demo: () => ({
-      name: 'nnecec',
-      sex: 'male'
-    })
-  }
-}
-
-export const typeDefs = [Query, UserType, DemoType]
-export const resolvers = merge(Resolver, UserResolver, DemoResolver)
+export const typeDefs = [Query, UserType, TodoType]
+export const resolvers = merge(Resolver, UserResolver, TodoResolver)

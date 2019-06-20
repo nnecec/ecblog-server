@@ -1,8 +1,3 @@
-
-import User from './user'
-import Article from './article'
-
-export {
-	User,
-	Article
-}
+export { default as UserController } from './user'
+export { default as ArticleController } from './article'
+export { default as TodoController } from './todo'
