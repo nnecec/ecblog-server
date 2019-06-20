@@ -1,8 +1,8 @@
 import User from '../../model/User'
 
-const UserController = {
+export default {
   // sign up
-  signup: async (params) => {
+  signup: async params => {
     const { username, password } = params
     const user = await User.findOne({ username })
     if (user) {
@@ -13,7 +13,7 @@ const UserController = {
     return newUser
   },
   // login
-  login: async (params) => {
+  login: async params => {
     const { username, password } = params
     const user: any = await User.findOne({ username })
     if (user) {
@@ -25,26 +25,16 @@ const UserController = {
     throw Error('This username is not existed.')
   },
   // logout
-  logout: async (params) => {
-
-  },
+  logout: async params => {},
   // change user profile
-  updateUser: async (params) => {
-
-  },
+  updateUser: async params => {},
   // list all user
-  list: async () => {
-
-  },
+  list: async () => {},
   // query user detail
-  detail: async (params) => {
-
-  },
+  detail: async params => {},
   // find user by token
-  getUserByToken: async (token) => {
+  getUserByToken: async token => {
     const user = await User.findOne({ token })
     return user
   }
 }
-
-export default UserController

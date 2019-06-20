@@ -1,6 +1,6 @@
-export default () => (ctx, next) => {
+export default () => async (ctx, next) => {
   ctx.flash = function (type, msg) {
     ctx.session.flash = { type: type, message: msg }
   }
-  return next()
+  await next()
 }
