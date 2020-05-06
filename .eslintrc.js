@@ -1,23 +1,19 @@
 module.exports = {
-  "env": {
-    "es6": true,
-    "node": true
+  'env': {
+    'browser': true,
+    'es6': true,
   },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "standard",
+  'extends': [
+    'google',
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+  'globals': {
+    'Atomics': 'readonly',
+    'SharedArrayBuffer': 'readonly',
   },
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "project": "./tsconfig.json",
+  'parserOptions': {
+    'ecmaVersion': 2018,
+    'sourceType': 'module',
   },
-  "rules": {
-  }
+  'rules': {
+  },
 };
